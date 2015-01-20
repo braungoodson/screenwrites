@@ -5,6 +5,9 @@ angular.module('screenwritesApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },{
+      'title': 'Screenwrites',
+      'link': '/screenwrites'
     }];
 
     $scope.isCollapsed = true;
