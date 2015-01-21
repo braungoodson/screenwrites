@@ -3,6 +3,6 @@ screenwrites
 
 Postacquisition:
 
-  $ mongod&
-  $ grunt
-  $ grunt serve
+    $ mongod&
+    $ grunt
+    $ grunt serve
