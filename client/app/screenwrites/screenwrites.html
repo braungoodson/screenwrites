@@ -1,0 +1,50 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div clas="row">
+
+<!-- Create -->
+<form>
+  <div class="form-group">
+    <label for="metatitle">Screenwrite Metatitle</label>
+    <input type="text" class="form-control" id="metatitle" placeholder="The Ultraverse" ng-model="screenwrite.name">
+  </div>
+  <div class="form-group">
+    <label for="screenwrite">Screenwrite</label>
+    <textarea id="screenwrite" class="form-control" rows="10" cols="1" placeholder="INT. STARSHIP - 246700 LEGACY"  ng-model="screenwrite.info"></textarea>
+  </div>
+  <!--div class="form-group">
+    <label for="exampleInputFile">File input</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div-->
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="screenwrite.active"> Publish
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="submit()">Submit</button>
+</form>
+<!-- Create -->
+
+  </div>
+</div>
+<br />
+<div class="container">
+  <div class="row">
+
+<!-- Read -->
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form ng-repeat="sw in screenwrite.screenwrites">
+      <div class="form-group">
+        <label for="sw">{{sw.name}}</label>
+        <pre id="sw">{{sw.info}}</pre>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Read -->
+
+  </div>
+</div>
