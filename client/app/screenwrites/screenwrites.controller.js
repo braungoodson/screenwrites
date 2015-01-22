@@ -5,18 +5,21 @@ angular.module('screenwritesApp')
     $scope.screenwrite = {
       screenwrites: []
     };
+    $scope.dob = function(d) {
+      return new Date(d).getTime();
+    };
     $scope.submit = function() {
-      if ($scope.screenwrite.name === '' || $scope.screenwrite.info === '') {
+      if ($scope.screenwrite.id === '' || $scope.screenwrite.body === '' || $scope.screenwrite.publish === false) {
         return;
       }
       $http.post('/api/screenwrites',{
-        name: $scope.screenwrite.name,
-        info: $scope.screenwrite.info,
-        active: $scope.screenwrite.active
+        id: $scope.screenwrite.id,
+        body: $scope.screenwrite.body,
+        publish: $scope.screenwrite.publish
       });
-      $scope.screenwrite.name = '';
-      $scope.screenwrite.info = '';
-      $scope.screenwrite.active = false;
+      $scope.screenwrite.id = '';
+      $scope.screenwrite.body = '';
+      $scope.screenwrite.publish = false;
     };
     $http.get('/api/screenwrites')
       .success(function(sw){

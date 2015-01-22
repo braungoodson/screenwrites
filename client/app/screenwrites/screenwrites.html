@@ -6,12 +6,12 @@
 <!-- Create -->
 <form>
   <div class="form-group">
-    <label for="metatitle">Screenwrite Metatitle</label>
-    <input type="text" class="form-control" id="metatitle" placeholder="The Ultraverse" ng-model="screenwrite.name">
+    <label for="codename">Codename</label>
+    <input type="text" class="form-control" id="codename" placeholder="The Ultraverse" ng-model="screenwrite.id">
   </div>
   <div class="form-group">
     <label for="screenwrite">Screenwrite</label>
-    <textarea id="screenwrite" class="form-control" rows="10" cols="1" placeholder="INT. STARSHIP - 246700 LEGACY"  ng-model="screenwrite.info"></textarea>
+    <textarea id="screenwrite" class="form-control" rows="10" cols="1" placeholder="INT. STARSHIP - 246700 LEGACY"  ng-model="screenwrite.body"></textarea>
   </div>
   <!--div class="form-group">
     <label for="exampleInputFile">File input</label>
@@ -20,7 +20,7 @@
   </div-->
   <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="screenwrite.active"> Publish
+      <input type="checkbox" ng-model="screenwrite.publish"> Publish
     </label>
   </div>
   <button type="submit" class="btn btn-default" ng-click="submit()">Submit</button>
@@ -36,10 +36,17 @@
 <!-- Read -->
 <div class="panel panel-default">
   <div class="panel-body">
-    <form ng-repeat="sw in screenwrite.screenwrites">
+    <form ng-repeat="sw in screenwrite.screenwrites | orderBy:dob:true">
       <div class="form-group">
-        <label for="sw">{{sw.name}}</label>
-        <pre id="sw">{{sw.info}}</pre>
+        <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span>
+        <label style="font-size:18px;" for="sw">{{sw._id}}+</label>
+        <span style="display:none;">{{dob(sw.dob)}}</span>
+        <span></span>
+        <pre id="sw">ID: {{sw.id}}
+DOB: {{sw.dob}}
+
+
+{{sw.body}}</pre>
       </div>
     </form>
   </div>
